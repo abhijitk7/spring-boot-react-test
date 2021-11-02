@@ -1,22 +1,21 @@
-import React, { Component } from 'react';
-import './App.css';
-import Home from './Home';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import ClientList from './ ClientList';
-import ClientEdit from './ClientEdit';
+import React from 'react'
+import NavBar from './components/elements/NavBar'
+import Timesheets from './components/Timesheet/Timesheets'
+import './styles/App.scss'
+import { Provider } from 'react-redux';
+import  store from './Store';
 
-class App extends Component {
-  render() {
+export default function App() {
     return (
-        <Router>
-          <Switch>
-            <Route path='/' exact={true} component={Home}/>
-            <Route path='/clients' exact={true} component={ClientList}/>
-            <Route path='/clients/:id' component={ClientEdit}/>
-          </Switch>
-        </Router>
+      <Provider store={store}>
+        <div className="App">
+          <NavBar />
+          <div className="container">
+            <div className="py-3">
+              <Timesheets />
+            </div>
+          </div>
+        </div>
+      </Provider>
     )
-  }
 }
-
-export default App;
