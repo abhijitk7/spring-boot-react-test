@@ -1,6 +1,14 @@
 import { createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 
+// actions
+export const addTime=(time)=>{
+  return {
+    type:"ADD_TIME",
+    payload:time
+  };
+};
+
 const initialState = {
   contacts: [
     {
@@ -238,6 +246,11 @@ const initialState = {
 
 const contactReducer=(state=initialState,action)=>{
     switch(action.type){
+        case "ADD_TIME":
+          return {
+            ...state,
+            contacts:[action.payload,...state.contacts]
+          };
         default:
             return state;
     }

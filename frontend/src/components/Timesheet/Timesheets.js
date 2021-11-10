@@ -23,7 +23,7 @@ export default function Timesheets() {
           </thead>
           <tbody>
             {contacts.map(contact => 
-                <TimeSheet contact={contact}/>
+                <TimeSheet contact={contact} key={contact.id}/>
             )}
           </tbody>
         </table>
