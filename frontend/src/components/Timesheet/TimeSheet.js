@@ -1,8 +1,9 @@
 import React from 'react'
 import Avatar from 'react-avatar';
+import { Link } from 'react-router-dom';
 
 function TimeSheet({contact}) {
-    const {name,phone,email}=contact;
+    const {id,name,phone,email}=contact;
     return (
         <tr>
             <td>
@@ -15,16 +16,16 @@ function TimeSheet({contact}) {
             <td>{phone}</td>
             <td>{email}</td>
             <td className="actions">
-                <a href="#">
+                <Link to={`/time/edit/${id}`}>
                     <span className="material-icons mr-2">
                         edit
                     </span>
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="#">
                     <span className="material-icons text-danger">
                         remove_circle
                     </span>
-                </a>
+                </Link>
             </td>
         </tr>
     )

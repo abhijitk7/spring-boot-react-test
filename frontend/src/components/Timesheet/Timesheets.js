@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import TimeSheet from './TimeSheet';
 
 export default function Timesheets() {
-    const contacts=useSelector((state) => state.contacts);
+    const contacts=useSelector((state) => state.data.contacts);
     return (
       <div>
         <table className="table table-striped table-hover shadow">

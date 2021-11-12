@@ -3,24 +3,24 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import shortid from 'shortid';
 import { useHistory } from 'react-router';
-import { addTime } from '../../Actions/AddTimeAction';
+import { editTime } from '../../Actions/EditTimeAction';
 
-export default function AddTimeSheet() {
+export default function EditTimeSheet() {
     let history=useHistory();
     const dispatch=useDispatch();
     const [name,setName]=useState("");
     const [phone,setPhone]=useState("");
     const [email,setEmail]=useState("");
 
-    const createContact=(e)=>{
+    const editContact=(e)=>{
         e.preventDefault();
-        const newContact={
+        const updatedContact={
             id:shortid.generate(),
             name:name,
             phone:phone,
             email:email
         };
-        dispatch(addTime(newContact));
+        dispatch(editTime(updatedContact));
         history.push("/");
     }
     
@@ -30,7 +30,7 @@ export default function AddTimeSheet() {
                 Add your time!
             </div>
             <div className="card-body">
-                <form onSubmit={(e)=>createContact(e)}>
+                <form onSubmit={(e)=>editContact(e)}>
                     <div className="form-group">
                         <input 
                             type="text" 
@@ -58,7 +58,7 @@ export default function AddTimeSheet() {
                             onChange={(e)=>setEmail(e.target.value)}
                         />
                     </div>
-                    <button className="btn btn-primary" type="Submit">Submit your time</button>
+                    <button className="btn btn-primary" type="Submit">Update your time</button>
                 </form>
             </div>
         </div>
